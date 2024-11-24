@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import Svg, { Circle } from "react-native-svg";
+import BlueUpArrow from "@/assets/svgs/blueUpArrow.svg";
 
 interface CircularProgressProps {
   score: number; // Progress out of 100
@@ -16,19 +17,19 @@ const CircularProgress: React.FC<CircularProgressProps> = ({
   score,
   size = 174,
   strokeWidth = 16,
-  progressColor = "red",
+  progressColor = "white",
   backgroundColor = "rgba(0, 0, 0, 0.2)",
   innerCircleColor = "#000000",
   marginAngle = 10, // Margin in degrees at both ends
 }) => {
   const outerRadius = size / 2; // Calculate outer radius
-  const innerRadius = outerRadius - strokeWidth; // Inner black circle radius
+  const innerRadius = outerRadius - strokeWidth - 10; // Inner black circle radius
   const diameter = size; // Diameter of the progress circle
-  const progressRadius = outerRadius - strokeWidth / 2 - 10; // New line
+  const progressRadius = outerRadius - strokeWidth / 2 - 5; // New line
 
 
   // Calculate properties for the progress circle
-  const circumference = 2 * Math.PI * (outerRadius - strokeWidth / 2);
+  const circumference = 2 * Math.PI * progressRadius;
 
   // Convert margin angle to a percentage of the circumference
   const margin = (marginAngle / 360) * circumference;
@@ -57,25 +58,24 @@ const CircularProgress: React.FC<CircularProgressProps> = ({
         {/* Circular Progress */}
         <Svg width={diameter} height={diameter}>
           {/* Background progress path */}
-          <Circle
+          {/* <Circle
             cx={outerRadius}
             cy={outerRadius}
             r={outerRadius - strokeWidth / 2}
             stroke={backgroundColor}
             strokeWidth={strokeWidth}
             fill="transparent"
-          />
+          /> */}
           {/* Progress Path */}
           <Circle
             cx={outerRadius}
             cy={outerRadius}
-            r={outerRadius - strokeWidth / 2}
+            r={progressRadius}
             stroke={computedProgressColor}
             strokeWidth={strokeWidth}
             fill="transparent"
-            strokeDasharray={`${progressLength} ${
-              circumference - progressLength
-            }`}
+            strokeDasharray={`${progressLength} ${circumference - progressLength
+              }`}
             strokeDashoffset={-margin} // Start after the margin
             strokeLinecap="round"
             transform={`rotate(0 ${outerRadius} ${outerRadius})`} // Start from top-center
@@ -101,9 +101,13 @@ const CircularProgress: React.FC<CircularProgressProps> = ({
             HEALTH SCORE
           </Text>
           <Text style={styles.score}>{score}</Text>
-          <Text style={styles.status}>
-            {score >= 80 ? "Excellent" : score >= 50 ? "Improving" : "Low"}
-          </Text>
+          <View style={{flexDirection: 'row', alignContent: 'center', gap: 2}}>
+
+            <BlueUpArrow width={10} height={15} />
+            <Text style={styles.status}>
+              {score >= 80 ? "Excellent" : score >= 50 ? "Improving" : "Low"}
+            </Text>
+          </View>
         </View>
       </View>
     </View>
@@ -130,23 +134,22 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   label: {
-    fontSize: 11,
+    fontSize: 10,
     color: "#F6F6F6",
-    fontWeight: "700",
-    marginBottom: 3,
+    fontWeight: "800",
+    marginTop: 16,
     letterSpacing: -0.5,
   },
   score: {
     fontSize: 49,
     fontWeight: "700",
     color: "#F5F5F5",
-    marginVertical: 3,
   },
   status: {
-    fontSize: 12,
+    fontSize: 10,
     color: "#5EAFFF",
     fontWeight: "500",
-    marginTop: 5,
+    marginBottom: 12,
   },
 });
 
