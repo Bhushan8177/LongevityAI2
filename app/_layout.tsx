@@ -8,7 +8,6 @@ import 'react-native-reanimated';
 import { HeaderVisibilityProvider } from '@/contexts/HeaderVisibilityContext';
 import './globals.css';
 
-import { useColorScheme } from '@/components/useColorScheme';
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -48,16 +47,13 @@ export default function RootLayout() {
 }
 
 function RootLayoutNav() {
-  const colorScheme = useColorScheme();
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <HeaderVisibilityProvider>
         <Stack>
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
           <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
         </Stack>
       </HeaderVisibilityProvider>
-    </ThemeProvider>
   );
 }

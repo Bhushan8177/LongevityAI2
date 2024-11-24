@@ -10,6 +10,7 @@ import Background from '@/assets/svgs/background.svg';
 import HabitBg from '@/assets/svgs/habitBg.svg';
 import Droplet from '@/assets/svgs/droplet.svg';
 import Sleep from '@/assets/svgs/sleep.svg';
+import CircularProgress from '@/components/UI/CircularProgress';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
 
@@ -47,14 +48,16 @@ export default function TabOneScreen() {
         scrollEventThrottle={16}
       >
 
-        
-
         {/* SVG */}
-         <View style={styles.fullScreenSvg}>
+        <View style={styles.fullScreenSvg}>
           {/* <Background width='100%' height="100%" /> */}
-          <NightBg width="100%" height="100%" />
+          {/* <NightBg width="100%" height="100%" /> */}
           {/* <ImageBackground source={require('../assets/svgs/background.svg')} style={{width: '100%', height: '100%'}} /> */}
-          {/* <AnimatedBackground /> */}
+          <AnimatedBackground />
+        </View>
+
+        <View style={styles.circularProgress}>
+          <CircularProgress score={85} size={174} strokeWidth={16} progressColor="#FFFFFF" backgroundColor="rgba(0, 0, 0, 0.2)" innerCircleColor="#000000" marginAngle={10} />
         </View>
 
         {/* Header content */}
@@ -87,7 +90,7 @@ export default function TabOneScreen() {
             <Droplet width={35} height={50} />
             <Text style={styles.insightHeading}>Understand your cortisol pattern</Text>
           </View>
-          <Text style={{ fontSize: 14, color: 'black', marginTop: 8, opacity: 0.5, letterSpacing: '0.6' }}>
+          <Text style={{ fontSize: 14, color: 'black', marginTop: 8, opacity: 0.5 }}>
             Learn how your cortisol levels are affecting your sleep qualtiy and what you can do about it
           </Text>
           <Text style={styles.insightLink}>
@@ -98,7 +101,7 @@ export default function TabOneScreen() {
         <View style={styles.achievementContainer}>
           <HabitBg width={400} height={250} style={styles.habitBg} />
           <Text style={styles.achievementHeading}>Today’s{'\n'}achievement</Text>
-          <Text style={{ fontSize: 15, color: '#FFFFFFB2', marginTop: 12, letterSpacing: '0.6', marginBottom: 16 }}>
+          <Text style={{ fontSize: 15, color: '#FFFFFFB2', marginTop: 12, marginBottom: 16 }}>
             Based on your sleep and activity patterns, you’re likely to have <Text style={{ fontWeight: 800, color: 'white' }}> 10% more energy today. </Text></Text>
           <Sleep width={400} height={250} style={{ alignSelf: 'center' }} />
         </View>
@@ -112,7 +115,6 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: 0, // Ensure no margin
     paddingTop: 0, // Ensure no padding
-    width: '100%',
   },
   scrollContent: {
     flexGrow: 1,
@@ -240,4 +242,10 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: "rgba(0, 0, 0, 0.3)", // Slightly transparent overlay
   },
+  circularProgress : {
+    position: 'absolute',
+    marginTop: 255,
+    left: 120,
+  }
+
 });
