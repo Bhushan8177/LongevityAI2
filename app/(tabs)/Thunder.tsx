@@ -29,6 +29,7 @@ export default function TabTwoScreen() {
     <View style={styles.container}>
       <ScrollView>
         <View style={styles.healthScoreContainer}>
+          
           <View style={styles.fullscreen}>
             <FullScreen width={25} height={40} />
           </View>
@@ -49,7 +50,7 @@ export default function TabTwoScreen() {
             </View>
           </View>
 
-          <View style={{ gap: 10 }}>
+          <View style={{ marginTop: 50, gap: 10 }}>
 
             <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', backgroundColor: 'rgba(0, 0, 0, 0.09)', paddingLeft: '10', paddingVertical: '10' }}>
               <View style={{ alignItems: 'center', gap: 8, borderRightColor: 'rgba(255,255,255,0.5)', borderRightWidth: 0.2, width: '33%', paddingVertical: 0 }}>

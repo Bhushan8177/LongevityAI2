@@ -10,6 +10,7 @@ import Background from '@/assets/svgs/background.svg';
 import HabitBg from '@/assets/svgs/habitBg.svg';
 import Droplet from '@/assets/svgs/droplet.svg';
 import Sleep from '@/assets/svgs/sleep.svg';
+import RightArrow from '@/assets/svgs/rightArrow.svg';
 import CircularProgress from '@/components/UI/CircularProgress';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
@@ -63,7 +64,7 @@ export default function TabOneScreen() {
         {/* Header content */}
         <View style={styles.headerContent}>
           <BlurView intensity={0} tint="light" style={styles.welcomeButton}>
-            <Text style={styles.welcomeText}>WELCOME TO DAY 30</Text>
+            <Text style={styles.welcomeText}>WELCOME TO <Text style={{ fontWeight: 700, color: 'black' }}> DAY 30 </Text></Text>
           </BlurView>
           <BellIcon width='10%' style={{ top: 75, right: 20 }} />
         </View>
@@ -86,22 +87,36 @@ export default function TabOneScreen() {
 
 
         <View style={styles.insightContainer}>
-          <View style={{ flex: 1, flexDirection: 'row', gap: '15', alignItems: 'center' }}>
+          <View style={{ flex: 1, flexDirection: 'row', gap: '12', alignItems: 'center' }}>
             <Droplet width={35} height={50} />
             <Text style={styles.insightHeading}>Understand your cortisol pattern</Text>
           </View>
-          <Text style={{ fontSize: 14, color: 'black', marginTop: 8, opacity: 0.5 }}>
+          <Text style={{ fontSize: 15, color: 'black', marginTop: 8, opacity: 0.4 }}>
             Learn how your cortisol levels are affecting your sleep qualtiy and what you can do about it
           </Text>
-          <Text style={styles.insightLink}>
-            Read Insights {'>'}
-          </Text>
+          <View style={{marginTop: 20,flexDirection: 'row', alignItems: 'center', gap: 4}}>
+            <Text style={styles.insightLink}>
+              READ INSIGHTS
+            </Text>
+            <RightArrow width={10} height={10} />
+
+          </View>
         </View>
 
         <View style={styles.achievementContainer}>
           <HabitBg width={400} height={250} style={styles.habitBg} />
-          <Text style={styles.achievementHeading}>Today’s{'\n'}achievement</Text>
-          <Text style={{ fontSize: 15, color: '#FFFFFFB2', marginTop: 12, marginBottom: 16 }}>
+          <Text style={styles.achievementHeading}>
+            Today’s{"\n"}achievement
+          </Text>
+          <Text
+            style={{
+              fontSize: 15,
+              color: "#FFFFFFB2",
+              marginTop: 12,
+              letterSpacing: "0.6",
+              marginBottom: 16,
+            }}
+          >
             Based on your sleep and activity patterns, you’re likely to have <Text style={{ fontWeight: 800, color: 'white' }}> 10% more energy today. </Text></Text>
           <Sleep width={400} height={250} style={{ alignSelf: 'center' }} />
         </View>
@@ -151,19 +166,19 @@ const styles = StyleSheet.create({
   welcomeButton: {
     alignSelf: 'flex-start',
     backgroundColor: 'rgba(255, 255, 255, 0.45)',
-    borderRadius: 5,
+    borderRadius: 8,
     top: 80,
     left: 16,
-    paddingVertical: 8,
+    paddingVertical: 12,
     paddingHorizontal: 16
-
   },
   welcomeText: {
-    color: 'rgba(255, 255, 255, 0.9)',
-    fontSize: 14,
+    color: 'rgba(0, 0, 0, 0.5)',
+    fontSize: 16,
+    fontWeight: '500',
   },
   carousel: {
-    marginTop: 250,
+    marginTop: 210,
     marginLeft: 16,
     marginBottom: 16,
   },
@@ -178,7 +193,8 @@ const styles = StyleSheet.create({
   insightContainer: {
     flexDirection: 'column',
     backgroundColor: '#EEEEEE',
-    padding: 20,
+    paddingHorizontal: 20,
+    paddingVertical: 12,
     marginTop: 16,
   },
   insightHeading: {
@@ -186,39 +202,38 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: 'black',
     letterSpacing: 0.5,
-    marginBottom: 8,
   },
   insightLink: {
     fontSize: 14,
-    fontWeight: '600',
+    fontWeight: '500',
     color: 'black',
-    marginTop: 16,
-    letterSpacing: 0.5,
+    letterSpacing: 0.2,
   },
   achievementContainer: {
-    position: 'relative',
-    flexDirection: 'column',
-    backgroundColor: '#C75237',
+    position: "relative",
+    flexDirection: "column",
+    backgroundColor: "#C75237",
     padding: 20,
     paddingBottom: 0,
     marginTop: 16,
     borderRadius: 16,
     marginHorizontal: 16,
+    height: 360,
+    overflow: "hidden",
   },
   achievementHeading: {
     fontSize: 28,
-    fontWeight: '600',
-    color: 'white',
+    fontWeight: "600",
+    color: "white",
     letterSpacing: 0.5,
   },
   habitBg: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    bottom: 0,
-    right: 0,
-    scaleX: 2,
-    scaleY: 2,
+    position: "absolute",
+    top: "50%", // Center vertically
+    left: "50%", // Center horizontally
+    transform: [{ translateX: -100 }, { translateY: -100 }, { scale: 3 }], // Adjust centering and scale
+    width: 400,
+    height: 250,
   },
   background: {
     flex: 1,
@@ -242,7 +257,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: "rgba(0, 0, 0, 0.3)", // Slightly transparent overlay
   },
-  circularProgress : {
+  circularProgress: {
     position: 'absolute',
     marginTop: 255,
     left: 120,

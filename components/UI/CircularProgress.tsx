@@ -124,9 +124,9 @@ const styles = StyleSheet.create({
   outerGlass: {
     justifyContent: "center",
     alignItems: "center",
-    shadowColor: "#FFF",
-    shadowOpacity: 0.5,
-    shadowRadius: 10,
+    // shadowColor: "#FFF",
+    // shadowOpacity: 0.5,
+    // shadowRadius: 10,
   },
   innerCircle: {
     justifyContent: "center",

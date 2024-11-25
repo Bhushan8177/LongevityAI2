@@ -7,43 +7,45 @@ const ITEM_WIDTH = SCREEN_WIDTH - 40;
 
 const InsightsCarousel: React.FC = () => {
   const data = [
-    { id: 1, title: 'Better sleep quality on days with evening meditation', insight1: {
-        level : 'STRESS LEVELS',   
-        amount : '23',
-        img : require('@/assets/svgs/downArrow.svg')
+    {
+      id: 1, title: 'Better sleep quality on days with evening meditation', insight1: {
+        level: 'STRESS LEVELS',
+        amount: '23',
+        img: require('@/assets/svgs/downArrow.svg')
+      },
+      insight2: {
+        level: 'ENERGY LEVELS',
+        amount: '56',
+        img: require('@/assets/svgs/upArrow.svg')
+      },
+      tip: '10min meditation before bed suggested.'
     },
-    insight2 : {
-        level : 'ENERGY LEVELS',
-        amount : '56',
-        img : require('@/assets/svgs/upArrow.svg')
-    },
-    tip : '10min meditation before bed suggested.'
- },
-    { id: 2, title: 'Morning sunlight increases productivity', insight1: {
-        level : 'STRESS LEVELS',   
-        amount : '73',
-        img : require('@/assets/svgs/downArrow.svg')
-    },
-    insight2 : {
-        level : 'ENERGY LEVELS',
-        amount : '16',
-        img : require('@/assets/svgs/upArrow.svg')
-    },
-    tip : '10min meditation before bed suggested.'
+    {
+      id: 2, title: 'Morning sunlight increases productivity', insight1: {
+        level: 'STRESS LEVELS',
+        amount: '73',
+        img: require('@/assets/svgs/downArrow.svg')
+      },
+      insight2: {
+        level: 'ENERGY LEVELS',
+        amount: '16',
+        img: require('@/assets/svgs/upArrow.svg')
+      },
+      tip: '10min meditation before bed suggested.'
     }
   ];
 
   const renderItem = ({ item }: { item: any }) => (
     <InsightCard
-        title={item.title}
-        stressLevel={item.insight1.level}
-        stressAmount={item.insight1.amount}
-        stressImg={item.insight1.img}
-        energyLevel={item.insight2.level}
-        energyAmount={item.insight2.amount}
-        energyImg={item.insight2.img}
-        tip={item.tip}
-        backgroundColor='rgba(67, 92, 191, 1)'
+      title={item.title}
+      stressLevel={item.insight1.level}
+      stressAmount={item.insight1.amount}
+      stressImg={item.insight1.img}
+      energyLevel={item.insight2.level}
+      energyAmount={item.insight2.amount}
+      energyImg={item.insight2.img}
+      tip={item.tip}
+      backgroundColor='rgba(67, 92, 191, 1)'
     />
   );
 
