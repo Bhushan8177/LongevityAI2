@@ -18,16 +18,16 @@ const TaskCard: React.FC<TaskCardProps> = ({
 }) => {
   return (
     <View style={[styles.cardContainer, { backgroundColor }]}>
+      <View style={styles.imageContainer}>
+        <Image source={require('@/assets/images/yoga.png')} style={{ width: 100, height: 200 }} />
+      </View>
+      <View style={styles.upnextContainer}>
+        <Text style={styles.upNext}>up next</Text>
+      </View>
       <View style={styles.contentContainer}>
         <View style={styles.textContainer}>
-          <View style={styles.upnextContainer}>
-            <Text style={styles.upNext}>up next</Text>
-          </View>
           <Text style={styles.title}>Morning{'\n'}Sunlight</Text>
           <Text style={styles.subtitle}>10mins • outdoor</Text>
-        </View>
-        <View style={styles.imageContainer}>
-          <Image source={require('@/assets/images/yoga.png')} style={{ width: 100, height: 200, marginTop: '10' }} />
         </View>
       </View>
       <Pressable
@@ -43,9 +43,8 @@ const TaskCard: React.FC<TaskCardProps> = ({
 const styles = StyleSheet.create({
   cardContainer: {
     width: CARD_WIDTH,
-    height: 200,
+    paddingBottom: 16,
     borderRadius: 24,
-    paddingHorizontal: 20,
     marginLeft: 16,
   },
   contentContainer: {
@@ -54,22 +53,24 @@ const styles = StyleSheet.create({
   },
   textContainer: {
     flex: 1,
-    paddingBottom: 12,
+    marginBottom: 12,
+    marginLeft: 12,
+    marginRight: 14,
   },
   imageContainer: {
     position: 'absolute',
-    top: 50,
+    top: 0,
     right: 0,
-    left: 150,
+    left: 160,
     bottom: 0,
-    justifyContent: 'center',
+    // justifyContent: 'center',
     zIndex: 1,
   },
   upNext: {
     color: 'white',
     fontSize: 16,
     paddingTop: 4,
-    marginBottom: 8,
+    marginBottom: 7,
     alignSelf: 'center',
     fontWeight: '700',
   },
@@ -78,7 +79,7 @@ const styles = StyleSheet.create({
     fontSize: 28,
     fontWeight: 'bold',
     lineHeight: 30,
-    marginTop: 42,
+    marginTop: 45,
   },
   subtitle: {
     color: '#ffffff',
@@ -89,16 +90,18 @@ const styles = StyleSheet.create({
   },
   startButton: {
     backgroundColor: '#000000',
-    borderRadius: 100,
-    height: 50,
+    borderRadius: 25,
+    paddingVertical: 11,
+    paddingHorizontal: 22,
     justifyContent: 'center',
     alignItems: 'center',
     zIndex: 1,
+    marginHorizontal: 12,
   },
   startButtonText: {
     color: '#ffffff',
     fontSize: 18,
-    fontWeight: '600',
+    fontWeight: '700',
   },
   svg: {
     transform: [{ scale: 1.5 }],
@@ -106,7 +109,7 @@ const styles = StyleSheet.create({
   upnextContainer: {
     position: 'absolute',
     width: 120,
-    left: -20,
+    left: 0,
     backgroundColor: 'rgba(0, 0, 0, 0.1)',
     paddingHorizontal: 10,
     paddingVertical: 2,

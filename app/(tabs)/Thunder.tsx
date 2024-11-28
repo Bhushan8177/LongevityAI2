@@ -5,9 +5,10 @@ import { useEffect } from 'react';
 import UpArrow from '@/assets/svgs/upArrow.svg';
 import DownArrow from '@/assets/svgs/downArrow.svg';
 import FullScreen from '@/assets/svgs/fullScreen.svg';
-import HabitBg from '@/assets/svgs/habitBg.svg';
+import HabitBg2 from '@/assets/svgs/habitBg2.svg';
 import TaskCarousel from '@/components/common/TaskCarousel';
 import InsightsCarousel from '@/components/common/InsightsCarousel';
+import HabitCarousel from '@/components/common/HabitCarousel';
 
 export default function TabTwoScreen() {
 
@@ -101,18 +102,18 @@ export default function TabTwoScreen() {
         </View>
 
         <View style={styles.habitStackContainer}>
-          <HabitBg width={400} height={250} style={styles.habitBg} />
+          <HabitBg2 width={400} height={250} style={styles.habitBg} />
           <Text style={{ fontSize: 12, color: '#ffffff', opacity: 0.7, fontWeight: 700 }}>HABIT STACKS</Text>
           <Text style={{ fontSize: 20, color: '#FFFFFF', fontWeight: 700, marginBottom: 16, letterSpacing: 1.2 }}>
             We have combined habits for{'\n'}better impact.
           </Text>
 
-          <InsightsCarousel />
+          <HabitCarousel />
 
           <Pressable
-            style={styles.startButton}
+            style={styles.habitButton}
           >
-            <Text style={styles.startButtonText}>all habit stacks</Text>
+            <Text style={styles.habitButtonText}>all habit stacks</Text>
           </Pressable>
 
 
@@ -127,6 +128,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
+    paddingVertical: 20,
   },
   titleNumber: {
     fontSize: 60,
@@ -143,7 +145,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     backgroundColor: "rgba(5, 150, 105, 1)",
     borderRadius: 25,
-    marginTop: 20,
     marginHorizontal: 20,
     paddingBottom: 15,
     shadowColor: '#000',
@@ -197,16 +198,28 @@ const styles = StyleSheet.create({
     backgroundColor: '#C75237',
     padding: 20,
     marginTop: 24,
-    borderRadius: 16,
-    marginHorizontal: 16,
   },
   habitBg: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    bottom: 0,
-    right: 0,
-    scaleX: 2,
-    scaleY: 2,
+    position: "absolute",
+    top: "50%", // Center vertically
+    left: "50%", // Center horizontally
+    transform: [{ translateX: -100 }, { translateY: -100 }, { scale: 2 }], // Adjust centering and scale
+    width: 400,
+    height: 400,
+  },
+  habitButton: {
+    backgroundColor: '#000000',
+    width: '50%',
+    borderRadius: 100,
+    height: 50,
+    marginTop: 10,
+    alignSelf: 'center',
+  },
+  habitButtonText: {
+    color: '#ffffff',
+    fontSize: 18,
+    fontWeight: '700',
+    textAlign: 'center',
+    marginTop: 12,
   },
 });

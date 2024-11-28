@@ -94,7 +94,7 @@ export default function TabOneScreen() {
           <Text style={{ fontSize: 15, color: 'black', marginTop: 8, opacity: 0.4 }}>
             Learn how your cortisol levels are affecting your sleep qualtiy and what you can do about it
           </Text>
-          <View style={{marginTop: 20,flexDirection: 'row', alignItems: 'center', gap: 4}}>
+          <View style={{ marginTop: 20, flexDirection: 'row', alignItems: 'center', gap: 4 }}>
             <Text style={styles.insightLink}>
               READ INSIGHTS
             </Text>
@@ -118,7 +118,9 @@ export default function TabOneScreen() {
             }}
           >
             Based on your sleep and activity patterns, you’re likely to have <Text style={{ fontWeight: 800, color: 'white' }}> 10% more energy today. </Text></Text>
-          <Sleep width={400} height={250} style={{ alignSelf: 'center' }} />
+          <View style={styles.sleepContainer}>
+            <Sleep width='100%' height='100%'/>
+          </View>
         </View>
       </Animated.ScrollView>
     </View>
@@ -155,7 +157,7 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   contentSubText: {
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: '500',
     color: 'white',
   },
@@ -179,7 +181,7 @@ const styles = StyleSheet.create({
   },
   carousel: {
     marginTop: 210,
-    marginLeft: 16,
+    marginLeft: 22,
     marginBottom: 16,
   },
   carouselHeading: {
@@ -195,7 +197,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#EEEEEE',
     paddingHorizontal: 20,
     paddingVertical: 12,
-    marginTop: 16,
+    marginVertical: 24,
   },
   insightHeading: {
     fontSize: 16,
@@ -210,16 +212,12 @@ const styles = StyleSheet.create({
     letterSpacing: 0.2,
   },
   achievementContainer: {
-    position: "relative",
     flexDirection: "column",
     backgroundColor: "#C75237",
-    padding: 20,
+    padding: 16,
     paddingBottom: 0,
-    marginTop: 16,
     borderRadius: 16,
     marginHorizontal: 16,
-    height: 360,
-    overflow: "hidden",
   },
   achievementHeading: {
     fontSize: 28,
@@ -261,6 +259,10 @@ const styles = StyleSheet.create({
     position: 'absolute',
     marginTop: 255,
     left: 120,
-  }
+  },
+  sleepContainer: {
+    height: 296,
+    width: '100%',
+  },
 
 });

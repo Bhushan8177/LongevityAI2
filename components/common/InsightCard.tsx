@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Dimensions, Pressable, Image } from 'react-native';
+import { View, Text, StyleSheet, Dimensions } from 'react-native';
 import UpArrow from '@/assets/svgs/upArrow.svg';
 import DownArrow from '@/assets/svgs/downArrow.svg';
 import Tip from '@/assets/svgs/tip.svg';
